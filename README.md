@@ -46,7 +46,7 @@ The analysis of the election show that
 ![election_results_text_file_snapshot](https://github.com/NingYang2022/Election_Analysis/blob/main/Resources/election_results_text_file_snapshot.png?raw=true)
 
 
-## <font color=#6495ED>Election Audit Summry</font>
+## <font color=#6495ED>Election Audit Summary</font>
 This script can be used for any other election with some modifications.
 For example:
 1.	We can import data from other elections by modifying the name of the file. 
