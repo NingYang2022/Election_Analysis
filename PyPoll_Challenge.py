@@ -1,9 +1,7 @@
-# -*- coding: UTF-8 -*-
-"""PyPoll Homework Challenge Solution."""
+
 
 # Add our dependencies.
 import csv
-from itertools import count
 import os
 
 # Add a variable to load a file from a path.
@@ -44,7 +42,7 @@ with open(file_to_load) as election_data:
     for row in reader:
 
         # Add to the total vote count
-        total_votes = total_votes + 1
+        total_votes += 1
 
         # Get the candidate name from each row.
         candidate_name = row[2]
@@ -100,7 +98,7 @@ with open(file_to_save, "w") as txt_file:
         votes = county_votes[county_name]
 
         # 6c: Calculate the percentage of votes for the county.
-        vote_percentage = float(votes) / float(total_votes) * 100
+        vote_percentage = votes / total_votes * 100
 
          # 6d: Print the county results to the terminal.
         county_results = (
@@ -112,7 +110,7 @@ with open(file_to_save, "w") as txt_file:
         txt_file.write(county_results)
 
          # 6f: Write an if statement to determine the winning county and get its vote count.
-        if (votes > largest_county_votes) and (vote_percentage > largest_county_percentage):
+        if votes > largest_county_votes :
             largest_county_votes = votes
             largest_county_percentage = vote_percentage
             largest_county = county_name
@@ -132,8 +130,8 @@ with open(file_to_save, "w") as txt_file:
     for candidate_name in candidate_votes:
 
         # Retrieve vote count and percentage
-        votes = candidate_votes.get(candidate_name)
-        vote_percentage = float(votes) / float(total_votes) * 100
+        votes = candidate_votes[candidate_name]
+        vote_percentage = votes / total_votes * 100
         candidate_results = (
             f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
 
@@ -144,7 +142,7 @@ with open(file_to_save, "w") as txt_file:
         txt_file.write(candidate_results)
 
         # Determine winning vote count, winning percentage, and candidate.
-        if (votes > winning_count) and (vote_percentage > winning_percentage):
+        if votes > winning_count:
             winning_count = votes
             winning_candidate = candidate_name
             winning_percentage = vote_percentage
